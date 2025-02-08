@@ -10,7 +10,7 @@ from torchvision import transforms
 from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
 
-from get-youtube-top-trending import get_live_streams
+from get-youtube-top-trending-streams import get_live_streams
 
 # Replace with your actual API key
 API_KEY = "YOUR_YOUTUBE_API_KEY"
