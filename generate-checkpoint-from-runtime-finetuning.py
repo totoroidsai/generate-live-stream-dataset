@@ -102,12 +102,14 @@ def train_ai_on_frames():
                 torch.save(clip_model.state_dict(), f"clip_finetuned_{frame_count}.pt")
                 print(f"Checkpoint saved: clip_finetuned_{frame_count}.pt")
 
-# YouTube Live Stream URL
-YOUTUBE_STREAM_URLS = get_live_streams(API_KEY)
-
-# Run frame capture in a background thread
-threading.Thread(target=capture_stream, daemon=True).start()
-
-
-# Run training in a background thread
-threading.Thread(target=train_ai_on_frames, daemon=True).start()
+def train_to_checkpoints():
+    
+    # YouTube Live Stream URL
+    YOUTUBE_STREAM_URLS = get_live_streams(API_KEY)
+    
+    # Run frame capture in a background thread
+    threading.Thread(target=capture_stream, daemon=True).start()
+    
+    
+    # Run training in a background thread
+    threading.Thread(target=train_ai_on_frames, daemon=True).start()
